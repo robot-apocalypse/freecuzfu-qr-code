@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <meta name="theme-color" content="#0f0f0f">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="QR Code">
+  <link rel="manifest" href="/manifest.json">
+  <link rel="apple-touch-icon" href="/icons/icon-192.svg">
+  <link rel="stylesheet" href="/style.css">
+  <style>:root { --accent: #38bdf8; }</style>
+  <title>QR Code — FreeCuzFU</title>
+</head>
+<body>
+
+  <a href="https://freecuzfu.com" class="back-link">← FreeCuzFU</a>
+  <button id="install-btn" aria-label="Install app" hidden>↓ Install</button>
+
+  <main>
+    <h1>QR Code</h1>
+    <textarea id="qr-input" placeholder="Paste a URL or type anything…" rows="3" spellcheck="false"></textarea>
+    <div class="controls">
+      <fieldset>
+        <legend>Error correction</legend>
+        <label><input type="radio" name="ecl" value="L"> L</label>
+        <label><input type="radio" name="ecl" value="M" checked> M</label>
+        <label><input type="radio" name="ecl" value="Q"> Q</label>
+        <label><input type="radio" name="ecl" value="H"> H</label>
+      </fieldset>
+      <button id="download-btn" disabled>↓ PNG</button>
+    </div>
+    <div id="qr-output"></div>
+    <p id="qr-empty">Start typing to generate a QR code.</p>
+  </main>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+  <script src="/app.js"></script>
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('/sw.js').catch(() => {});
+    }
+  </script>
+</body>
+</html>
