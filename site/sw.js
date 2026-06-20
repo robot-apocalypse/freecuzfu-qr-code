@@ -1,4 +1,4 @@
-const CACHE = 'qr-code-v2';
+const CACHE = 'qr-code-v3';
 const ASSETS = ['/', '/style.css', '/app.js', '/manifest.json', '/icons/icon-192.svg', '/icons/icon-512.svg'];
 
 self.addEventListener('install', (e) => {
